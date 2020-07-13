@@ -103,8 +103,8 @@ Group by
 print(f'Q7 QUERIES: Average number of weps' ,f'{cursor.execute(Q7).fetchall()}')
 
 Q6 = '''
-SELECT AVG(NumOwep) FROM
-	(SELECT count(*) as NumOwep
+SELECT AVG(NumOitems) FROM
+	(SELECT count(*) as NumOitems
 	FROM charactercreator_character
 	JOIN charactercreator_character_inventory
 	ON charactercreator_character.character_id = charactercreator_character_inventory.character_id
