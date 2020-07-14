@@ -36,11 +36,12 @@ Q2_2 = f'{select} FROM {location[1]}'
 Q2_3 = f'{select} FROM {location[2]}'
 Q2_4 = f'{select} FROM {location[3]}'
 Q2_5 = f'{select} FROM {location[4]}'
-print('Q2(Cleric class) count :',f'{cursor.execute(Q2_1).fetchall()}')
-print('Q2(Fighter class) count :',f'{cursor.execute(Q2_2).fetchall()}')
-print('Q2(Mage class) count :',f'{cursor.execute(Q2_3).fetchall()}')
-print('Q2(Nechomancer class) count :',f'{cursor.execute(Q2_1).fetchall()}')
-print('Q2(Theif class) count:',f"{cursor.execute('SELECT COUNT (*) FROM charactercreator_thief').fetchall()}")
+print('Q2(Cleric class) count :', f'{cursor.execute(Q2_1).fetchall()}')
+print('Q2(Fighter class) count :', f'{cursor.execute(Q2_2).fetchall()}')
+print('Q2(Mage class) count :', f'{cursor.execute(Q2_3).fetchall()}')
+print('Q2(Nechomancer class) count :', f'{cursor.execute(Q2_1).fetchall()}')
+print('Q2(Theif class) count:',
+      f"{cursor.execute('SELECT COUNT (*) FROM charactercreator_thief').fetchall()}")
 cursor.execute(
     'SELECT COUNT (*) as "Item Amount" FROM armory_item;').fetchall()
 Q3 = '''
@@ -100,7 +101,8 @@ on
 Group by
 	charactercreator_character.character_id)
 '''
-print(f'Q7 QUERIES: Average number of weps' ,f'{cursor.execute(Q7).fetchall()}')
+print(f'Q7 QUERIES: Average number of weps',
+      f'{cursor.execute(Q7).fetchall()}')
 
 Q6 = '''
 SELECT AVG(NumOitems) FROM
@@ -110,4 +112,5 @@ SELECT AVG(NumOitems) FROM
 	ON charactercreator_character.character_id = charactercreator_character_inventory.character_id
 	GROUP BY charactercreator_character.character_id)
 '''
-print(f'Q6 QUERIES: Average number of items' ,f'{cursor.execute(Q6).fetchall()}')
+print(f'Q6 QUERIES: Average number of items',
+      f'{cursor.execute(Q6).fetchall()}')

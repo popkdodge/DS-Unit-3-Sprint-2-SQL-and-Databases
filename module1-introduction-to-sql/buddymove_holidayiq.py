@@ -9,7 +9,7 @@ conn
 
 cursor = conn.cursor()
 df = pd.read_csv('buddymove_holidayiq.csv')
-#df.to_sql('buddymove_holidayiq', con=conn)
+df.to_sql('buddymove_holidayiq', con=conn)
 
 Q1 = 'SELECT count(*) as Count_of_rows FROM buddymove_holidayiq;'
 Q2 = '''
