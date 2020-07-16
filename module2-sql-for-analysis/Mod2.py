@@ -1,4 +1,7 @@
 
+import numpy as np
+import pandas as pd
+import sqlite3
 import psycopg2
 
 
@@ -53,7 +56,6 @@ pg_curs.execute('INSERT INTO test_table (name, data) VALUES (null, null);')
 
 
 # Step 1 - Extract, getting data out of SQLite3
-import sqlite3
 sl_conn = sqlite3.connect('rpg_db.sqlite3')
 sl_curs = sl_conn.cursor()
 
@@ -89,8 +91,6 @@ pg_curs.fetchall()
 pg_conn.commit()
 ticonn = sqlite3.connect('titanic.sqlite3')
 ti_curs = ticonn.cursor()
-import pandas as pd
-import numpy as np
 df = pd.read_csv('titanic.csv')
 df.Name = df.Name.str.replace('.', '')
 df.Name = df.Name.str.replace("'", '_')
@@ -122,9 +122,10 @@ titanic[:5]
 for people in titanic:
     insert_people = """
     INSERT INTO titanic
-    (survived, Pclass, Name, SEX, AGE, Sibling_Spouses_Aboard, Parent_Children_Aboard, FARE)
+    (survived, Pclass, Name, SEX, AGE, Sibling_Spouses_Aboard, 
+    Parent_Children_Aboard, FARE)
     VALUES """ + str(people[1:]) + ";"
     pg_curs.execute(insert_people)
 pg_conn.commit()
-#pg_curs.execute('DROP TABLE titanic2;')
-pg_curs.execute('SELECT * FROM titanic3;').fetchall()
+# pg_curs.execute('DROP TABLE titanic2;')
+pg_curs.execute('SELECT * FROM titanic;').fetchall()

@@ -18,7 +18,7 @@ create_statement = '''
 
 '''
 # STEP 3 - Execute our statements
-#cursor.execute(create_statement)
+cursor.execute(create_statement)
 cursor.execute('Select * from pizza;').fetchall()
 
 # insert statements
