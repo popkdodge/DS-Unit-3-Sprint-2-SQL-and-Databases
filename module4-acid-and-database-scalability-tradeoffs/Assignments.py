@@ -200,7 +200,7 @@ test = pg_curs.fetchall()
 for people in test:
     print(
         f'Pclass: {people[0]}, ',
-        'Average number of Parent/Chidren: {round(people[1],2)}.')
+        f'Average number of Parent/Chidren: {round(people[1],2)}.')
 
 print("Question 8.5 By survival?")
 Q8_5 = '''
@@ -211,4 +211,4 @@ test = pg_curs.fetchall()
 for people in test:
     print(
         f'Pclass: {people[0]},',
-        'Average number of Parent/Chidren: {round(people[1],2)}.')
+        f'Average number of Parent/Chidren: {round(people[1],2)}.')
