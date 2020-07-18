@@ -122,7 +122,7 @@ titanic[:5]
 for people in titanic:
     insert_people = """
     INSERT INTO titanic
-    (survived, Pclass, Name, SEX, AGE, Sibling_Spouses_Aboard, 
+    (survived, Pclass, Name, SEX, AGE, Sibling_Spouses_Aboard,
     Parent_Children_Aboard, FARE)
     VALUES """ + str(people[1:]) + ";"
     pg_curs.execute(insert_people)
